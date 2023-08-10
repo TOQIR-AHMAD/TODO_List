@@ -2,14 +2,12 @@ const searchInput = document.getElementById("searchInput");
 const todoList = document.getElementById("todoList");
 const todos = JSON.parse(localStorage.getItem("todos"));
 
-// Function to fetch data from the fake API
 async function fetchTodos() {
   const response = await fetch("https://jsonplaceholder.typicode.com/todos");
   const data = await response.json();
   return data;
 }
 
-// Function to render the todo list
 function renderTodos() {
   todoList.innerHTML = "";
 
@@ -46,10 +44,10 @@ function renderTodos() {
   });
 }
 
-// Event listener for search input
+
 searchInput.addEventListener("input", renderTodos);
 
-// Initial data fetching and storage
+
 if (todos.length === 0) {
   fetchTodos().then((data) => {
     data.slice(0, 10).forEach((todo) => {
@@ -62,7 +60,7 @@ if (todos.length === 0) {
   renderTodos();
 }
 
-// Event listener for checkbox change
+
 todoList.addEventListener("change", (event) => {
   if (event.target.tagName === "INPUT") {
     const selectedTodo = event.target.previousElementSibling.textContent;
@@ -75,7 +73,7 @@ todoList.addEventListener("change", (event) => {
   }
 });
 
-// Event listener for edit and delete buttons
+
 todoList.addEventListener("click", (event) => {
   if (event.target.classList.contains("editButton")) {
     const index = event.target.getAttribute("data-index");
