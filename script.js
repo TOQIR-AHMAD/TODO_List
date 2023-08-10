@@ -22,11 +22,12 @@ function renderTodos() {
   filteredTodos.forEach((todo, index) => {
     const li = document.createElement("li");
     li.innerHTML = `
-    <span class="${todo.completed ? 'completed' : ''}">${todo.title}</span>
-    
+    <span class="${todo.completed ? "completed" : ""}">${todo.title}</span>
+    <input type="checkbox" class="" ${todo.completed ? "checked" : ""}>
+
 
     <div class="checkbox-wrapper">
-  <input type="checkbox" ${todo.completed ? 'checked' : ''}>
+  <input type="checkbox" ${todo.completed ? "checked" : ""}>
   <svg viewBox="0 0 35.6 35.6">
     <circle r="17.8" cy="17.8" cx="17.8" class="background"></circle>
     <circle r="14.37" cy="17.8" cx="17.8" class="stroke"></circle>
